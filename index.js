@@ -1,19 +1,19 @@
-const Nightmare = require('nightmare');
-const nightmare = Nightmare({ show: false });
+const Nightmare = require('nightmare')
 
-const URL = 'http://blog.oscarmorrison.com/nightmarejs-on-heroku-the-ultimate-scraping-setup/';
-console.log('Welcome to Nightmare scrape\n==========');
+console.log('Nightmare script started')
+console.log('==========')
 
-nightmare
-    .goto(URL)
-    .wait('.post-title')
-    .evaluate(() => document.querySelector('.post-title').textContent)
-    .end()
-    .then((result) => {
-        console.log(result);
-        console.log('=========\nAll done');
-    })
-    .catch((error) => {
-        console.error('an error has occurred: ' + error);
-    })
-    .then(() => (console.log('process exit'), process.exit()));
+Nightmare()
+	.goto('https://blog.oscarmorrison.com/nightmarejs-on-heroku-the-ultimate-scraping-setup/')
+	.wait('.post-title')
+	.evaluate(() => document.querySelector('.post-title').textContent)
+	.end()
+	.then(result => {
+		console.log(result)
+		console.log('=========')
+		console.log('All done')
+	})
+	.catch(error => {
+		console.error('Error: ' + error)
+	})
+	.then(() => (console.log('Process exits'), process.exit()))
