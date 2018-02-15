@@ -1,31 +1,65 @@
+<h1 align="center">Nightmare Heroku Example</h1>
+
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/1651212/27013967-6cbd6b8a-4ebc-11e7-9cd8-e5d0fcb01440.png" alt="logo" width="600px" />
- </p>
+	<a title="Nightmare" href="http://www.nightmarejs.org/"><b>Nightmare</b></a>
+</p>
+<p align="center">
+	<a title="Heroku" href="https://www.heroku.com/"><img alt="Heroku" src="https://github.com/logo/heroku/blob/master/images/logo.svg" width="" height="64"></a>
+</p>
 
+<p align="center">
+	<br><a title="Sibbell" href="https://about.sibbell.com/"><img alt="Sibbell" src="https://raw.githubusercontent.com/sibbell/support/master/logo.png" width="131" height="41"></a>
+	<br>⭐ Star and get notified about new releases via email.
+</p>
 
-# NightmareJS on Heroku <a href="https://heroku.com/deploy" target="_blank"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Heroku deploy" align="right"></a>
+## Getting Started
+- Initial steps
+	- Install <a title="Node.js" href="https://nodejs.org/en/"><img alt="Node.js" src="https://camo.githubusercontent.com/9c24355bb3afbff914503b663ade7beb341079fa/68747470733a2f2f6e6f64656a732e6f72672f7374617469632f696d616765732f6c6f676f2d6c696768742e737667" width="" height="18"></a> and <a title="Yarn" href="https://yarnpkg.com/lang/en/"><img alt="Yarn" src="https://raw.githubusercontent.com/yarnpkg/assets/master/yarn-kitten-full.svghttps://raw.githubusercontent.com/yarnpkg/assets/master/yarn-kitten-full.png" width="" height="18"></a>.
+	- Install <a title="Heroku CLI" href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install"><img alt="Heroku CLI" src="https://github.com/logo/heroku/blob/master/images/logo.svg" width="" height="18"> CLI</a> and <a title="Git" href="https://git-scm.com/downloads"><img alt="Git" src="https://cdn.svgporn.com/logos/git.svg" width="" height="18"></a>.
+	- [Download](https://github.com/kireerik/nightmare-heroku-example/archive/master.zip) or [clone](github-windows://openRepo/https://github.com/kireerik/nightmare-heroku-example) this repository.
+	- Open a command prompt in the project folder.
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/oscarmorrison/nightmare-heroku/issues)  
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=plastic)](https://github.com/oscarmorrison/nightmare-heroku/blob/master/LICENSE)  [![GitHub issues](https://img.shields.io/github/issues/oscarmorrison/nightmare-heroku.svg)](https://github.com/oscarmorrison/nightmare-heroku/issues)
+> Install dependencies:
+> ```shell
+> yarn install
+> ```
 
+Start the script:
+> ```shell
+> yarn start
+> ```
 
-## Intro
+## Set up Heroku app
+Create a new app from the Heroku Dashboard.
 
-[NightmareJS](http://www.nightmarejs.org/) is an awesome highlevel webscraping and browser automation library built ontop of electron. This repo is a good starting place to be able to use it with some default setups ontop of heroku using the following instructions. [Read more](http://blog.oscarmorrison.com/nightmarejs-on-heroku-the-ultimate-scraping-setup/)
+Go to Settings / Buildpacks and add the following buildpacks:
+> `https://github.com/heroku/heroku-buildpack-apt`
+> <br>`https://github.com/captain401/heroku-buildpack-xvfb.git`
+> <br>`https://github.com/benschwarz/heroku-electron-buildpack.git`
+> <br>`heroku/nodejs`
 
-## Getting started
-- `git clone --depth 1 git@github.com:oscarmorrison/nightmare-heroku [new-project-name]`
-- `cd [new-project-name]`
-- `rm -rf .git`
-- `git init`
-- `heroku create [app-name]`
-- `heroku stack:set cedar-14`
-- set build packs
-```
-heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt &&
-heroku buildpacks:add --index 2 https://github.com/captain401/heroku-buildpack-xvfb.git &&
-heroku buildpacks:add --index 3 https://github.com/benschwarz/heroku-electron-buildpack.git &&
-heroku buildpacks:add --index 4 https://github.com/heroku/heroku-buildpack-nodejs.git
-```
-- `git push heroku master`
-- `heroku ps:scale web=0 worker=1`
+Modify the stack:
+> ```shell
+> heroku stack:set cedar-14
+> ```
+
+> Create a Git repository (if you don't have one already)
+
+Add the remote Heroku repository:
+> ```shell
+> git remote add heroku https://heroku:HEROKU_API_KEY@git.heroku.com/HEROKU_APP_NAME.git
+> ```
+> You can go to the Heroku Dashboard / {profile picture} / Account settings / API Key to get it.
+
+Deploy to Heroku:
+> ```shell
+> yarn deploy
+> ```
+
+Go to the Heroku Dashboard / {app} / Resources and turn the `web` Dyno `off` and the `worker` Dyno `on`.
+
+## Deployment
+Deploy to Heroku:
+> ```shell
+> yarn deploy
+> ```
