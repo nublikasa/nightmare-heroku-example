@@ -40,7 +40,7 @@ Go to Settings / Buildpacks and add the following buildpacks:
 
 Modify the stack:
 > ```shell
-> heroku stack:set cedar-14
+> heroku stack:set cedar-14 --app HEROKU_APP_NAME
 > ```
 
 > Create a Git repository (if you don't have one already)
