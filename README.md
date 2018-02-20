@@ -29,6 +29,12 @@ Start the script:
 > yarn start
 > ```
 
+## Development
+Start the script in development mode:
+> ```shell
+> yarn dev
+> ```
+
 ## Set up Heroku app
 Create a new app from the Heroku Dashboard.
 
