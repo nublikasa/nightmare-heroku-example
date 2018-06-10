@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-	<br><a title="Sibbell" href="https://about.sibbell.com/"><img alt="Sibbell" src="https://raw.githubusercontent.com/sibbell/support/master/logo.png" width="131" height="41"></a>
+	<br><a title="GitPunch" href="https://gitpunch.com/"><img alt="GitPunch" src="https://raw.githubusercontent.com/vfeskov/gitpunch/master/client/public/big-logo.png" width="222" height="52"></a>
 	<br>⭐ Star and get notified about new releases via email.
 </p>
 
